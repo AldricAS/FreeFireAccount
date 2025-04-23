@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FF Account Generator</title>
+  <style>
+    body {
+      background: #0f0f0f;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+    .card {
+      display: none;
+      margin-top: 20px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #1c1c1c, #2e2e2e);
+      padding: 20px;
+      box-shadow: 0 0 10px #000;
+    }
+    .card h3 {
+      margin-bottom: 10px;
+      color: #00ffcc;
+    }
+    .info {
+      margin: 10px 0;
+      background: #222;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    .generate-btn {
+      padding: 10px 20px;
+      background: #ff0000;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .branding {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+    #loading {
+      display: none;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #00ffcc;
+    }
+    .shake {
+      animation: shake 0.5s;
+      animation-iteration-count: 4;
+    }
+    @keyframes shake {
+      0% { transform: translate(2px, 1px) rotate(0deg); }
+      10% { transform: translate(-1px, -2px) rotate(-1deg); }
+      20% { transform: translate(-3px, 0px) rotate(1deg); }
+      30% { transform: translate(0px, 2px) rotate(0deg); }
+      40% { transform: translate(1px, -1px) rotate(1deg); }
+      50% { transform: translate(-1px, 2px) rotate(-1deg); }
+      60% { transform: translate(-3px, 1px) rotate(0deg); }
+      70% { transform: translate(2px, 1px) rotate(-1deg); }
+      80% { transform: translate(-1px, -1px) rotate(1deg); }
+      90% { transform: translate(2px, 2px) rotate(0deg); }
+      100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+  </style>
+</head>
+<body>
+  <h2>🦇Created By Bat🦇</h2>
+  <button class="generate-btn" onclick="generate()">Generate Free Fire Account</button>
+  <div id="loading">Generating account...</div>
+
+  <div class="card" id="resultCard">
+    <h3>Informasi Akun</h3>
+    <div class="info" id="email">Email:</div>
+    <div class="info" id="password">Password:</div>
+    <div class="info" id="ip">IP Address:</div>
+    <div class="branding">
+      🌑Created By 🦇Batxyz🦇🌑<br>
+      🦇The 🌑 Bat🦇
+    </div>
+  </div>
+
+  <audio id="sound">
+    <source src="https://media.vocaroo.com/mp3/1aW8iuKK2fwg" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const emails = [
+      "garuda.gamerzone@gmail.com",
+      "batlegends2024@gmail.com",
+      "fireplayer.id@gmail.com",
+      "ffkingdom2024@gmail.com"
+    ];
+    const passwords = [
+      "securebattle77",
+      "hunterzone22",
+      "firepass2024",
+      "safemode88"
+    ];
+    const ips = [
+      "172.16.44.87",
+      "192.168.55.123",
+      "103.212.98.34",
+      "45.13.220.11"
+    ];
+
+    function getRandom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function vibratePhone() {
+      if (navigator.vibrate) {
+        navigator.vibrate([300, 100, 300]);
+      }
+    }
+
+    function generate() {
+      document.getElementById('resultCard').style.display = 'none';
+      document.getElementById('loading').style.display = 'block';
+
+      setTimeout(() => {
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('resultCard').style.display = 'block';
+
+        document.body.classList.add('shake');
+        setTimeout(() => document.body.classList.remove('shake'), 2000);
+
+        document.getElementById('email').textContent = "Email: " + getRandom(emails);
+        document.getElementById('password').textContent = "Password: " + getRandom(passwords);
+        document.getElementById('ip').textContent = "IP Address: " + getRandom(ips);
+
+        document.getElementById('sound').play();
+        vibratePhone();
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
