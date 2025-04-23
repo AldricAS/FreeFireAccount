@@ -86,7 +86,7 @@
   </div>
 
   <audio id="sound">
-    <source src="https://media.vocaroo.com/mp3/1aW8iuKK2fwg" type="audio/mpeg">
+    <source src="https://media.vocaroo.com/mp3/16cehi7Rr4ky" type="audio/mpeg">
   </audio>
 
   <script>
@@ -134,7 +134,11 @@
         document.getElementById('password').textContent = "Password: " + getRandom(passwords);
         document.getElementById('ip').textContent = "IP Address: " + getRandom(ips);
 
-        document.getElementById('sound').play();
+        const sound = document.getElementById('sound');
+        sound.pause();
+        sound.currentTime = 0;
+        sound.play();
+
         vibratePhone();
       }, 3000);
     }
